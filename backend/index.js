@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import cors from "cors";
-import { client } from "./mongodb.js";
+// import { client } from "./mongodb.js";
+import {client} from "./server"
 
 const app = express();
 app.use(express.json());
