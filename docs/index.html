@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlineAcademy.net - Transforme seu Futuro com Educação Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffffff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 80px 0;
+        }
+
+        .courses h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffffff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .course-card p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .course-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .course-students {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.8);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid,
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">OnlineAcademy.net</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#courses">Cursos</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <a href="#" class="cta-button">Começar Agora</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Transforme seu Futuro com Educação Online</h1>
+            <p>Aprenda com os melhores professores do mundo, no seu próprio ritmo. Milhares de cursos disponíveis em tecnologia, negócios, design e muito mais.</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-button">Explorar Cursos</a>
+                <a href="#" class="secondary-button">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <div class="container">
+            <h2>Por que Escolher a OnlineAcademy.net?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Professores Especialistas</h3>
+                    <p>Aprenda com profissionais reconhecidos do mercado, com anos de experiência prática em suas áreas de atuação.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Aprendizado Flexível</h3>
+                    <p>Estude quando e onde quiser. Nossos cursos são 100% online e você pode acessar o conteúdo a qualquer momento.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Certificados Reconhecidos</h3>
+                    <p>Receba certificados válidos no mercado de trabalho e impulsione sua carreira profissional.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💬</div>
+                    <h3>Comunidade Ativa</h3>
+                    <p>Conecte-se com outros estudantes, tire dúvidas e compartilhe experiências em nossa comunidade.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Acesso Mobile</h3>
+                    <p>Estude pelo celular, tablet ou computador. Nossa plataforma é otimizada para todos os dispositivos.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Projetos Práticos</h3>
+                    <p>Aplique seus conhecimentos em projetos reais e construa um portfólio impressionante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2>Cursos em Destaque</h2>
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <div class="course-image">💻</div>
+                    <div class="course-content">
+                        <h3>Desenvolvimento Web Completo</h3>
+                        <p>Aprenda HTML, CSS, JavaScript, React e Node.js. Do básico ao avançado, tudo que você precisa para se tornar um desenvolvedor full-stack.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 297</span>
+                            <span class="course-students">1.2k estudantes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card fade-in">
+                    <div class="course-image">🎨</div>
+                    <div class="course-content">
+                        <h3>Design UI/UX Profissional</h3>
+                        <p>Domine as ferramentas e conceitos do design digital. Figma, Adobe XD, prototipagem e muito mais.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 247</span>
+                            <span class="course-students">890 estudantes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card fade-in">
+                    <div class="course-image">📊</div>
+                    <div class="course-content">
+                        <h3>Data Science e Machine Learning</h3>
+                        <p>Mergulhe no mundo dos dados. Python, pandas, scikit-learn, TensorFlow e análise de dados.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 347</span>
+                            <span class="course-students">756 estudantes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card fade-in">
+                    <div class="course-image">📱</div>
+                    <div class="course-content">
+                        <h3>Desenvolvimento Mobile</h3>
+                        <p>Crie aplicativos para iOS e Android usando React Native e Flutter. Publique na App Store e Google Play.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 297</span>
+                            <span class="course-students">634 estudantes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card fade-in">
+                    <div class="course-image">💰</div>
+                    <div class="course-content">
+                        <h3>Marketing Digital</h3>
+                        <p>Estratégias de marketing online, SEO, Google Ads, redes sociais e métricas de performance.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 197</span>
+                            <span class="course-students">1.5k estudantes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card fade-in">
+                    <div class="course-image">🔒</div>
+                    <div class="course-content">
+                        <h3>Cybersecurity Essencial</h3>
+                        <p>Proteja sistemas e dados. Ethical hacking, criptografia, segurança de redes e compliance.</p>
+                        <div class="course-meta">
+                            <span class="course-price">R$ 397</span>
+                            <span class="course-students">423 estudantes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <h3>50k+</h3>
+                    <p>Estudantes Ativos</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>200+</h3>
+                    <p>Cursos Disponíveis</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>95%</h3>
+                    <p>Taxa de Satisfação</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>24/7</h3>
+                    <p>Suporte Online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OnlineAcademy.net</h3>
+                    <p>Transformando vidas através da educação online de qualidade. Junte-se a milhares de estudantes que já mudaram suas carreiras conosco.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Cursos</h3>
+                    <ul>
+                        <li><a href="#">Desenvolvimento Web</a></li>
+                        <li><a href="#">Design UI/UX</a></li>
+                        <li><a href="#">Data Science</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Conecte-se</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OnlineAcademy.net. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+                header.style.borderBottom = '1px solid rgba(102, 126, 234, 0.3)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+                header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize animations
+        animateOnScroll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+div.loginContainer {
+  width: 100%;
+  height: fit-content;
+  min-height: calc(100vh - 150px);
+  max-height: 90vh;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  gap: 15px;
+}
+/* div.loginContainer.box {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: top 0.9s ease-out;
+}
+.loginContainer.box .title {
+  display: none;
+} */
+.loginContainer .title {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+}
+.loginContainer > section {
+  background: radial-gradient(var(--cardBorder), transparent);
+  width: 98%;
+  height: fit-content;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: -5vh; */
+  font-family: serif;
+  font-size: 21px;
+  text-transform: capitalize;
+  gap: 14px;
+  box-shadow: inset 0 1px 4pt var(--cardBorder);
+}
+.loginContainer.box > section {
+  max-width: 800px;
+  border-radius: 12pt;
+  box-shadow: 0 1px 4pt var(--cardBorder);
+}
+.loginContainer > section > * {
+  flex: 1 1 auto;
+}
+
+.loginContainer form {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.loginContainer form input {
+  width: 90%;
+  max-width: 480px;
+  height: 3em;
+  max-height: 38px;
+  font-size: 16px;
+  outline: none;
+  font-family: monospace;
+  padding: 5px 10px;
+  border: 1px solid var(--cardBorder);
+  border-radius: 6px;
+  transition: all 0.2s ease-in;
+}
+.loginContainer form input:hover {
+  border: 1px solid var(--accent);
+  box-shadow: 1px 0 6pt var(--text-light);
+}
+.loginContainer button {
+  width: 90%;
+  max-width: 350px;
+  height: 45px;
+  border: 1px solid var(--text-light);
+  background: transparent;
+  color: var(--text-light);
+  outline: none;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 21px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  font-family: serif;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.loginContainer button:hover {
+  border-color: var(--cardBorder);
+  box-shadow: 1px 0 14pt var(--accent);
+  background: var(--color3);
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.loginContainer .divisor {
+  width: 99%;
+  height: fit-content;
+  text-align: center;
+  position: relative;
+  text-transform: lowercase;
+}
+.loginContainer .divisor::before {
+  content: "";
+  width: 40%;
+  height: 3px;
+  background-color: var(--cardBorder);
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 4%;
+}
+.loginContainer .divisor::after {
+  content: "";
+  width: 40%;
+  height: 3px;
+  background-color: var(--cardBorder);
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 4%;
+}
+
+.loginContainer .btns {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+.loginContainer .btns > div {
+  width: 100%;
+  height: fit-content;
+  padding: 0 5px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.loginContainer .btns > div p {
+  margin-right: 10px;
+}
+.loginContainer .btns > div .social {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginContainer .btns > div .social > * {
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+.loginContainer .btns > div .social:hover,
+.loginContainer .btns > div .social:focus {
+  color: var(--cardBorder);
+  background-color: var(--text-light);
+  box-shadow: 1px 0 12pt var(--text-light);
+}
+.loginContainer .btns > p.alt {
+  font-size: 0.8em;
+  font-weight: bolder;
+}
+
+@media (min-width: 1024px) {
+  .loginContainer > section {
+    flex-direction: row;
+  }
+  .loginContainer .divisor {
+    flex: 0 0 30px;
+    width: fit-content;
+  }
+  .loginContainer .divisor::before {
+    display: none;
+  }
+  .loginContainer .divisor::after {
+    display: none;
+  }
+  .loginContainer .btns > div p {
+    width: 100%;
+    margin-right: 0;
+    padding-bottom: 10px;
+  }
+}
