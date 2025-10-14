@@ -1,6 +1,6 @@
+require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-  "mongodb+srv://default_user:JiwqC1lnQpShZbhf@online-acdemy-dotnet.wtazhzj.mongodb.net/?retryWrites=true&w=majority&appName=online-acdemy-dotnet";
+const uri = process.env.MONGO_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 export const client = new MongoClient(uri, {
